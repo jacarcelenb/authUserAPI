@@ -21,7 +21,7 @@ app.post("/users", async (req, res) => {
   const updateUser = await admin
     .auth()
     .updateUser(user.uid, {
-      email: user.email,
+      email: req.body.newemail,
       phoneNumber: user.phoneNumber,
       emailVerified: user.emailVerified,
       displayName: req.body.name,
