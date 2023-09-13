@@ -24,7 +24,6 @@ app.post("/users", async (req, res) => {
       email: req.body.newemail,
       phoneNumber: user.phoneNumber,
       emailVerified: user.emailVerified,
-      displayName: req.body.name,
       photoURL: user.photoURL,
       disabled: user.disabled,
     })
@@ -34,12 +33,6 @@ app.post("/users", async (req, res) => {
     .catch((error) => {
       return error;
     });
-
-  if (updateUser == true) {
-    res.status(201);
-  } else {
-    res.status(404);
-  }
   res.json({ updated: updateUser });
 });
 
